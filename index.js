@@ -6,8 +6,8 @@ const app = express()
 
 app.use(cors())
 
-app.get('/data/:url', async (req, res) => {
-  const { url } = req.params
+app.get('/data', async (req, res) => {
+  const { url } = req.query
 
   try {
     fetch(url)
