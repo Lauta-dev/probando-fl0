@@ -6,6 +6,7 @@ const app = express()
 app.use(cors())
 
 app.get('/', (req, res) => {
+  console.log("asdasdsadasdasdas")
   res.json({
     msj: 'Hola desde FL0'
   })
