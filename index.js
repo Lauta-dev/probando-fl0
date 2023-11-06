@@ -14,9 +14,11 @@ app.get('/data', async (req, res) => {
       .then(j => j.text())
       .then(data => {
         const title = data.match(/<title>(.*?)<\/title>/i)
-
+        const favicon = data.match(/<link rel="icon" href="(.*?)"/i)
+        
         res.json({
           title: title,
+          favicon
         })
 
       })
