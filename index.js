@@ -10,15 +10,13 @@ app.get('/data', async (req, res) => {
   const { url } = req.query
 
   try {
-    fetch(url)
+    fetch("https://app.fl0.com/mi-backend/new-project/dev/probando-fl0/deployments")
       .then(j => j.text())
       .then(data => {
         const title = data.match(/<title>(.*?)<\/title>/i)
-        const favicon = data.match(/<link rel="icon" href="(.*?)"/i)
 
         res.json({
-          title: title[1],
-          favicon: favicon[1]
+          title: title,
         })
 
       })
