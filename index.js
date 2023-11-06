@@ -6,11 +6,11 @@ const app = express()
 
 app.use(cors())
 
-app.get('/data', async (req, res) => {
-  const { url } = req.query
+app.get('/data/:url', async (req, res) => {
+  const { url } = req.params
 
   try {
-    fetch("https://app.fl0.com/mi-backend/new-project/dev/probando-fl0/deployments")
+    fetch(url)
       .then(j => j.text())
       .then(data => {
         const title = data.match(/<title>(.*?)<\/title>/i)
