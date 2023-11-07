@@ -4,7 +4,12 @@ const cors = require('cors')
 
 const app = express()
 
-app.use(cors())
+const ACCEPT_WEB = ["https://dashboard-ten-plum.vercel.app"]
+
+app.use(cors({
+  origin: ACCEPT_WEB,
+  methods: 'GET',
+}))
 
 app.get('/data', async (req, res) => {
   const { url } = req.query
